@@ -1,0 +1,6 @@
+.game {
+    max-width: 600px;
+    max-height: 450px;
+    position: relative;
+    overflow: hidden;
+}
