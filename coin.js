@@ -5,3 +5,6 @@ function Coin(initialPosition) {
 }
 
 Coin.prototype.type = 'coin';
+Coin.prototype.act = function(step) {
+  
+}
