@@ -1,6 +1,6 @@
 const playerSpeed = 6;
 const gravity = 28;
-const jumpSpeed = 15;
+const jumpSpeed = 18;
 
 function Player(initialPosition) {
   this.position = initialPosition.plus(new Vector(0, -0.5));
@@ -42,4 +42,12 @@ Player.prototype.moveY = function (step, level, keys) {
 Player.prototype.act = function (step, level, keys) {
   this.moveX(step, level, keys);
   this.moveY(step, level, keys);
+
+  let otherActor = level.actorAt(this);
+  if (otherActor) level.playerTouched(otherActor.type, otherActor);
+
+  if (level.status === 'lost') {
+    this.position.y += step;
+    this.size.y -= step;
+  }
 }
